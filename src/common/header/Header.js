@@ -10,6 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 
+
 class Header extends Component{
     searchChangeHandler = () => {
 
@@ -18,7 +19,7 @@ class Header extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {
+       this.state = {
             search:"",
         };
     }
@@ -30,14 +31,34 @@ class Header extends Component{
          this.setState({anchorEl:null});
     };
 
+    onCLickingMyAccount =()=>{
+        this.props.onCLickingMyAccount();
+     }
 
+     logout=()=>{
+        this.props.onClickingLogout();
+     }
+     hideSearchAndProfilePic = (p) => {
+        if(p==="home") {
+            document.getElementsByClassName('header-right')[0].style.display = "flex";
+        }else
+        {
+            document.getElementsByClassName('header-right')[0].style.display = "none";
+        }
+    }
+
+
+
+    componentDidMount(): void {
+        this.hideSearchAndProfilePic(this.props.screen)
+    }
 
 
     render(){
     return(
         <div className="app-header">
           <div className="header-logo"> Image Viewer</div>
-          <div className="header-right">
+          <div className="header-right" id="headerright">
             <div className="search">
                 <Input  className="search-input" type="text" placeholder={'Search...'} username={this.state.search} onChange={this.searchChangeHandler}
                     startAdornment={
@@ -59,8 +80,8 @@ class Header extends Component{
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                     >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={this.onCLickingMyAccount}>My Account</MenuItem>
+                    <MenuItem onClick={this.logout}>Logout</MenuItem>
                 </Menu>
             </div>
           </div>

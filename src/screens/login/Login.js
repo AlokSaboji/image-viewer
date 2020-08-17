@@ -68,7 +68,7 @@ class Login extends Component {
   render(){
   return (
     <div>
-         <Header/>
+         <Header screen={"login"}/>
          <div className="main-container">
                 <Card style={styles.card}>
                     <CardContent>
