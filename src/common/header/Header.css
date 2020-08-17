@@ -15,3 +15,25 @@
     font-size: 18px;
     padding :10px
 }
+.profile-button{
+
+}
+.header-right{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+.menu-container {
+    top: 36px!important;
+    left: 17px!important;
+}
+
+.search-input{
+    border-radius: 4px;
+    width: 300px;
+    background-color: #c0c0c0;
+}
+.MuiInput-root {
+    position: relative;
+    top: 12px;
+}
